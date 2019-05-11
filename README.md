@@ -6,7 +6,7 @@ Clone this repo into ~/dotfiles with `git clone git@github.com:stasbar/dotfiles-
 
 ## Vim
 
-#### instalation
+#### Installation
 ```bash
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ```
@@ -15,7 +15,7 @@ ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 
 A set of environment variables, functions and aliases for the Fish shell. Nothing here will gonna work for bash or zsh.
 
-#### Instalation
+#### Installation
 
 - Install [Fish](https://fishshell.com/) `brew install fish` and set it up as the default shell
 
