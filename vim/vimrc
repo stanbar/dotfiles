@@ -12,6 +12,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
+" enable Polish words
+set fileencodings=ucs-bom,utf-8,default,latin1
+set encoding=utf-8
+setglobal fileencoding=utf-8 bomb
+
 " Softtabs, 2 spaces
 set tabstop=4
 set shiftwidth=4
