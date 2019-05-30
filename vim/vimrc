@@ -1,16 +1,13 @@
+" enter the current millenium
+set nocompatible
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
 
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-call plug#end()
+" enable syntax and plugins
+syntax enable 
+filetype plugin on
 
 " enable Polish words
 set fileencodings=ucs-bom,utf-8,default,latin1
@@ -27,5 +24,31 @@ set expandtab
 set number
 set numberwidth=5
 set relativenumber
+
+" Set Polish language spelling correction
+if v:version >= 700
+    " Toggle in-line spell checking on and off with `,s`
+    let mapleader = ","
+    nmap <silent> <leader>s :set spell!<CR>
+    "Set region to British English
+    "set spelllang=en_gb
+    set spelllang=pl,en_us,en_gb
+endif
+
+"vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
+" ysiw[ to add [ braces in word ] cs[" to change surrounding from [] to ""
+Plug 'tpope/vim-surround'
+" gcc to comment line gcgc to toggle
+Plug 'tpope/vim-commentary'
+call plug#end()
 
 " vim:ft=vim
