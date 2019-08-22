@@ -9,6 +9,13 @@ Clone this repo into ~/dotfiles with `git clone git@github.com:stasbar/dotfiles-
 #### Installation
 ```bash
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/dotfiles/vim/colors ~/.vim/colors
+```
+
+## Zsh
+
+```bash
+ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ```
 
 ## fish
