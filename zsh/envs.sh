@@ -1,0 +1,10 @@
+export GIT_EMAIL="stasbar@stasbar.com"
+export GIT_NAME="Stanislaw Baranski"
+export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
+export ANDROID_HOME=$HOME/Library/Android/sdk/
+export EDITOR=vim
+export VISUAL_EDITOR=sublime
+export MARKDOWN_EDITOR="Typora"
+export PROJECTS=$HOME/Projects
+export ANDROID=$PROJECTS/AndroidProjects
+export VAPE=$ANDROID/VapeToolPro
