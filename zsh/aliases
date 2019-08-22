@@ -1,0 +1,39 @@
+#Aliases
+alias studio='/Applications/Android Studio.app/Contents/MacOS/studio'
+alias emacs='emacs -nw'
+alias octave='octave-cli'
+alias em='emacs'
+alias edit='vim'
+alias android_sources='open /Users/stasbar/Library/Android/sdk/sources/'
+alias projects='open /Users/stasbar/GoogleDrive/AndroidStudioProjects/'
+alias vape='open /Users/stasbar/GoogleDrive/AndroidStudioProjects/VapeToolPro/app/src/main'
+alias tunnel_eti='ssh 000000tk@lab527.eti.pg.gda.pl'
+alias socks_eti='ssh -D 8088 000000tk@lab527.eti.pg.gda.pl'
+alias taxledger='open '$taxledger''
+alias mypi='ssh pi@raspberrypi.local'
+alias mypip='ssh pi@80.238.125.248 -p 5678'
+alias config='edit ~/.aliases'
+alias clc='clear'
+alias reload="source ~/.aliases"
+alias upgrade='brew update && brew upgrade'
+alias sha256='openssl sha256'
+alias share='python -m SimpleHTTPServer'
+alias mypiz='ssh dietpi@10.7.7.2'
+alias duh='du -d 0 -h * | sort -h'
+alias parity-ui='/Applications/Parity\ UI.app/Contents/MacOS/Parity\ UI --ui-interface=192.168.0.200 --ws-interface=192.168.0.200 --jsonrpc-interface=192.168.0.200 &'
+alias ethereum-wallet='/Applications/Ethereum\ Wallet.app/Contents/MacOS/Ethereum\ Wallet --rpc /Volumes/SSD500GB/geth/geth.ipc'
+alias mist='/Applications/Mist.app/Contents/MacOS/Mist --rpc /Volumes/SSD500GB/geth/geth.ipc'
+
+# ls
+# alias l='ls -F'
+# alias l1='ls -1F'
+# alias la='ls -aF'
+# alias ll='ls -laFh'
+# alias ls='ls -F'
+
+#Noob mode
+alias cp='cp -i'
+alias rm="echo Use 'del', or the full path '/bin/rm' "
+alias del='rmtrash'
+alias mv='mv -i'
+
