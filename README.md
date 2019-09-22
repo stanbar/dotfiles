@@ -9,6 +9,10 @@ Clone this repo into ~/dotfiles with `git clone git@github.com:stasbar/dotfiles-
 ```bash
 ln -s ~/dotfiles/vim/.vimrc ~/
 ln -s ~/dotfiles/vim/colors ~/.vim/
+
+# if you want polish spelling support
+mkdir ~/.vim/plugin
+ln -s ~/dotfiles/vim/plugin/polish.vim ~/.vim/plugin/
 ```
 
 ## Zsh
