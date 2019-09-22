@@ -7,15 +7,31 @@ Clone this repo into ~/dotfiles with `git clone git@github.com:stasbar/dotfiles-
 ## Vim
 
 ```bash
-ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim/colors ~/.vim/colors
+ln -s ~/dotfiles/vim/.vimrc ~/
+ln -s ~/dotfiles/vim/colors ~/.vim/
 ```
 
-## Zsh
+## Oh-my-zsh
 
 ```bash
-ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -s ~/dotfiles/oh-my-zsh/*.sh ~/.oh-my-zsh/custom/
+ln -s ~/dotfiles/oh-my-zsh/themes/*.zsh-theme ~/.oh-my-zsh/custom/themes/
 ```
+
+## i3
+
+```bash
+ln -s ~/dotfiles/i3/config ~/.config/i3/
+```
+
+## Xorg
+
+```bash
+ln -s ~/dotfiles/xorg/.Xresources ~/
+ln -s ~/dotfiles/xorg/.Xmodmap ~/
+ln -s ~/dotfiles/xorg/.xinitrc ~/
+```
+
 
 ## fish
 

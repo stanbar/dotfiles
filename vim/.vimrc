@@ -24,21 +24,6 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
 
-" Enable Polish words
-set fileencodings=ucs-bom,utf-8,default,latin1
-set encoding=utf-8
-setglobal fileencoding=utf-8 bomb
-
-" Set Polish language spelling correction
-if v:version >= 700
-    " Toggle in-line spell checking on and off with `,s`
-    let mapleader = ","
-    nmap <silent> <leader>s :set spell!<CR>
-    "Set region to British English
-    "set spelllang=en_gb
-    set spelllang=pl,en_us,en_gb
-endif
-
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -55,7 +40,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'takac/vim-hardtime' "Vim Hardtime
-Plug 'davidhalter/jedi-vim' " jedi-vim for python autocomplition
 " Try command-t or ctrlp
 call plug#end()
 
