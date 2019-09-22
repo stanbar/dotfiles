@@ -18,8 +18,6 @@ set number  " show line numbers
 set numberwidth=5
 set relativenumber
 set tw=79   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
-set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
@@ -40,6 +38,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'takac/vim-hardtime' "Vim Hardtime
+Plug 'ycm-core/YouCompleteMe'
 " Try command-t or ctrlp
 call plug#end()
 
