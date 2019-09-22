@@ -11,6 +11,13 @@ ln -s ~/dotfiles/vim/.vimrc ~/
 ln -s ~/dotfiles/vim/colors ~/.vim/
 ```
 
+## Zsh
+
+This is platform specific profile, so replace <platform> with either *macos* or *linux*.
+```bash
+ln -s ~/dotfiles/zsh/<platform>/.zshrc ~/
+```
+
 ## Oh-my-zsh
 
 ```bash
