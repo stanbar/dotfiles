@@ -178,7 +178,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command ~/bumblebee-status/bumblebee-status \
+        -m cpu memory disk nic network_traffic progress docker_ps \
+        http_status:stasbar \
+        layout arch-update date time \
+        -p \
+        cpu.format="{:.0f}%" \
+        memory.format="{used}" \
+        disk.format="{used}" \
+        time.format="%H:%M:%S" \
+        date.format="%d/%m/%Y" \
+        stasbar.label="sb" \
+        stasbar.target="https://stasbar.com" \
+        -t solarized
 }
 
+focus_follows_mouse no
 exec "xrand --dpi 220"
+bindsym Print exec scrot $HOME/Downloads/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Ctrl+Print exec scrot -u $HOME/Downloads/`date +%Y-%m-%d_%H:%M:%S`.png
