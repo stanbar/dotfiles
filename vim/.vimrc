@@ -39,7 +39,11 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'takac/vim-hardtime' "Vim Hardtime
 Plug 'ycm-core/YouCompleteMe'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " Try command-t or ctrlp
 call plug#end()
-
+"
+" set .tsx files as typescript filetypes
+autocmd BufEnter *.tsx set filetype=typescript
 " vim:ft=vim
