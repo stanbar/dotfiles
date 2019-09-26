@@ -1,3 +1,8 @@
+set encoding=utf-8
+
+" Leader
+let mapleader = " "
+
 set nocompatible            " enter the current millenium
 
 " Search down into subfolders
