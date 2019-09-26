@@ -25,7 +25,7 @@ ln -s ~/dotfiles/zsh/<platform>/.zshrc ~/
 ## Oh-my-zsh
 
 ```bash
-ln -s ~/dotfiles/oh-my-zsh/*.sh ~/.oh-my-zsh/custom/
+ln -s ~/dotfiles/oh-my-zsh/*.zsh ~/.oh-my-zsh/custom/
 ln -s ~/dotfiles/oh-my-zsh/themes/*.zsh-theme ~/.oh-my-zsh/custom/themes/
 ```
 
