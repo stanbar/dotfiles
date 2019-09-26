@@ -1,30 +1,33 @@
-set encoding=utf-8
-
 " Leader
 let mapleader = " "
 
 set nocompatible            " enter the current millenium
 
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set showcmd       " display incomplete commands
+set autowrite     " Automatically :write before running commands
+set modelines=0   " Disable modelines as a security precaution
+set nomodeline
+
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**
 
-syntax enable                   " Enable syntax highlighting.
 colorscheme darcula
-filetype plugin indent on   " Enable file type based indentation.
 
-set autoindent              " Respect indentation when starting a new line.
 set expandtab               " Expand tabs to spaces. Essential in Python.
-set tabstop=4               " Number of spaces tab is counted for.
-set shiftwidth=4            " Number of spaces to use for autoindent.
+set tabstop=2               " Number of spaces tab is counted for.
+set shiftwidth=2            " Number of spaces to use for autoindent.
+set shiftround
 
 " Display relative line numbers, with absolute line number for current line
 set number  " show line numbers
 set numberwidth=5
 set relativenumber
-set tw=79   " width of document (used by gd)
-set colorcolumn=80
-highlight ColorColumn ctermbg=233
+set textwidth=80   " width of document (used by gd)
+set colorcolumn=+1
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -32,6 +35,9 @@ set splitright
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" Switch between the last two files
+nnoremap <Leader><Leader> <C-^>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
