@@ -21,6 +21,9 @@ set tw=79   " width of document (used by gd)
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -49,6 +52,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'tpope/vim-fugitive'
 Plug 'udalov/kotlin-vim'
+Plug 'christoomey/vim-conflicted'
 " Try command-t or ctrlp
 call plug#end()
 "
