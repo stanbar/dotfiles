@@ -36,11 +36,19 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " gcc to comment line gcgc to toggle
 Plug 'tpope/vim-commentary'
+if executable('fzf')
+    Plug '/usr/bin/fzf'
+else
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'takac/vim-hardtime' "Vim Hardtime
 Plug 'ycm-core/YouCompleteMe'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'tpope/vim-fugitive'
+Plug 'udalov/kotlin-vim'
 " Try command-t or ctrlp
 call plug#end()
 "
