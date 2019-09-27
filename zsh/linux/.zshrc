@@ -96,9 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias del="trash-put"
 export EDITOR='vim'
 bindkey -v
+
+alias del="trash-put"
+alias paint="pinta"
 # TMUX
 if [[ -z "$TMUX" ]] ;then
     ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
