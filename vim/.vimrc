@@ -47,6 +47,7 @@ nnoremap <C-l> <C-w>l
 
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
+nnoremap <c-P> :Ag<cr>
 
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
