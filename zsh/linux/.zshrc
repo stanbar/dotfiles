@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 bindkey -v
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 alias del="trash-put"
 alias paint="pinta"
 # TMUX
