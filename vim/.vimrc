@@ -27,6 +27,7 @@ set number  " show line numbers
 set numberwidth=5
 set relativenumber
 set textwidth=80   " width of document (used by gd)
+set formatoptions-=t  " dont insert newline when you exceed 80 characters
 set colorcolumn=+1
 
 " Open new split panes to right and bottom, which feels more natural
@@ -47,7 +48,7 @@ nnoremap <C-l> <C-w>l
 
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
-nnoremap <c-P> :Ag<cr>
+nnoremap <leader>p :Ag<cr>
 
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
