@@ -37,6 +37,8 @@ set splitright
 " Always use vertical diffs
 set diffopt+=vertical
 
+set pastetoggle=<F3>
+
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
