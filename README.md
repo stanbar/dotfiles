@@ -29,6 +29,28 @@ ln -s ~/dotfiles/oh-my-zsh/*.zsh ~/.oh-my-zsh/custom/
 ln -s ~/dotfiles/oh-my-zsh/themes/*.zsh-theme ~/.oh-my-zsh/custom/themes/
 ```
 
+## Tmux
+
+```bash
+ln -s ~/dotfiles/tmux/.tmux.conf ~/
+```
+
+## fish
+
+```bash
+ln -s ~/dotfiles/fish/functions ~/.config/fish/function
+print 'source ~/dotfiles/fish/profile.fish' >> ~/.config/fish/config.fish
+```
+
+# macOS only
+
+## Terminal and iTerm JetBrains Darcula theme
+
+[iTerm](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/JetBrains%20Darcula.itermcolors)
+[Terminal](https://github.com/lysyi3m/macos-terminal-themes/blob/master/schemes/JetBrains%20Darcula.terminal)
+
+# linux only
+
 ## i3
 
 ```bash
@@ -42,20 +64,4 @@ ln -s ~/dotfiles/xorg/.Xresources ~/
 ln -s ~/dotfiles/xorg/.Xmodmap ~/
 ln -s ~/dotfiles/xorg/.xinitrc ~/
 ```
-
-
-## fish
-
-A set of environment variables, functions and aliases for the Fish shell. Nothing here will gonna work for bash or zsh.
-
-- Install [Fish](https://fishshell.com/) `brew install fish` and set it up as the default shell
-
-- softlink fish functions `ln -s ~/dotfiles/fish/functions ~/.config/fish/functions` so they are avaiable via `funced` and `funcsave` fish utils
-
-- Source other content by appending `profile.sh` to the `config.fish ` with `echo 'source ~/dotfiles/fish/profile.fish' >> ~/.config/fish/config.fish`⏎ 
-
-## Terminal and iTerm JetBrains Darcula theme
-
-[iTerm](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/JetBrains%20Darcula.itermcolors)
-[Terminal](https://github.com/lysyi3m/macos-terminal-themes/blob/master/schemes/JetBrains%20Darcula.terminal)
 
