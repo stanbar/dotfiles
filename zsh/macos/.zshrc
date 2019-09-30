@@ -68,7 +68,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew)
+plugins=(git brew tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,7 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/Users/stasbar/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
+
 export LC_ALL=en_GB.UTF-8
 
 bindkey -v
