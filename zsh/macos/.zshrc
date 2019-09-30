@@ -104,3 +104,4 @@ export LC_ALL=en_GB.UTF-8
 
 bindkey -v
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

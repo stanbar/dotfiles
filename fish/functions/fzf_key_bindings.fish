@@ -1,0 +1,1 @@
+/Users/stasbar/.fzf/shell/key-bindings.fish
