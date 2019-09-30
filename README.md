@@ -3,6 +3,11 @@
 My dotfiles, a constantly evolving set of configurations which I arguably spend too much time tweaking, but they make the command line feel like home, so here we are.
 
 Clone this repo into ~/dotfiles with `git clone git@github.com:stasbar/dotfiles-fish.git ~/dotfiles`
+## Git
+
+```bash
+ln -s ~/dotfiles/git/.gitconfig ~/
+```
 
 ## Vim
 
