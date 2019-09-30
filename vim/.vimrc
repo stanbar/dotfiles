@@ -82,7 +82,8 @@ Plug 'udalov/kotlin-vim'
 Plug 'christoomey/vim-conflicted'
 " Try command-t or ctrlp
 call plug#end()
-"
+" Required to vim work with fzf
+set rtp+=~/.fzf
 " set .tsx files as typescript filetypes
 autocmd BufEnter *.tsx set filetype=typescript
 " vim:ft=vim
