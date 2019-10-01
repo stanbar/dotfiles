@@ -51,7 +51,9 @@ nnoremap <C-l> <C-w>l
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>p :Ag<cr>
-
+" Tmux suppoer 
+autocmd VimResized * :wincmd =
+nnoremap <leader>= :wincmd =<cr>
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -80,6 +82,8 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'tpope/vim-fugitive'
 Plug 'udalov/kotlin-vim'
 Plug 'christoomey/vim-conflicted'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 " Try command-t or ctrlp
 call plug#end()
 " Required to vim work with fzf
