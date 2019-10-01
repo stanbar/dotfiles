@@ -102,6 +102,11 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 export LC_ALL=en_GB.UTF-8
 
 bindkey -v
