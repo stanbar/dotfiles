@@ -97,17 +97,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export LC_ALL=en_US.UTF-8
 source $HOME/.aliases
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
-# Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-export LC_ALL=en_GB.UTF-8
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+export PATH="$PATH:$HOME/flutter/bin"
+test -d "$GOPATH" || mkdir "$GOPATH"
+test -d "$GOPATH/src/github.com" || mkdir -p "$GOPATH/src/github.com"
 
 bindkey -v
 
