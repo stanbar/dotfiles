@@ -73,6 +73,7 @@ if executable('fzf')
 else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'takac/vim-hardtime' "Vim Hardtime
