@@ -79,7 +79,7 @@ else
 endif
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
-"Plug 'takac/vim-hardtime' "Vim Hardtime
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'christoomey/vim-conflicted'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
