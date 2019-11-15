@@ -51,6 +51,7 @@ nnoremap <C-l> <C-w>l
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>p :Ag<cr>
+map <C-n> :NERDTreeToggle<CR>
 " Tmux suppoer 
 autocmd VimResized * :wincmd =
 nnoremap <leader>= :wincmd =<cr>
@@ -85,6 +86,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
+Plug 'scrooloose/nerdtree'
 
 " Language supports
 " Plug 'ycm-core/YouCompleteMe'
