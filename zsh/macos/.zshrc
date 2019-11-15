@@ -99,16 +99,18 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export LC_ALL=en_US.UTF-8
 source $HOME/.aliases
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
-export PATH="$HOME/dotfiles/bin:$PATH"
 
 export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
+export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 export PATH="$PATH:$HOME/flutter/bin"
 test -d "$GOPATH" || mkdir "$GOPATH"
 test -d "$GOPATH/src/github.com" || mkdir -p "$GOPATH/src/github.com"
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
+
 
 bindkey -v
 
