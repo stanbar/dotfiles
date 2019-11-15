@@ -54,6 +54,10 @@ nnoremap <leader>p :Ag<cr>
 " Tmux suppoer 
 autocmd VimResized * :wincmd =
 nnoremap <leader>= :wincmd =<cr>
+
+" Required to vim work with fzf
+set rtp+=~/.fzf
+
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -73,22 +77,25 @@ if executable('fzf')
 else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'takac/vim-hardtime' "Vim Hardtime
-Plug 'ycm-core/YouCompleteMe'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'tpope/vim-fugitive'
-Plug 'udalov/kotlin-vim'
+"Plug 'takac/vim-hardtime' "Vim Hardtime
 Plug 'christoomey/vim-conflicted'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-" Try command-t or ctrlp
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
+
+" Language supports
+" Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" consider https://github.com/sheerun/vim-polyglot since it supports all below
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'udalov/kotlin-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
-" Required to vim work with fzf
-set rtp+=~/.fzf
-" set .tsx files as typescript filetypes
-autocmd BufEnter *.tsx set filetype=typescript
+
+source ~/dotfiles/vim/plugin/coc.vim
 " vim:ft=vim
