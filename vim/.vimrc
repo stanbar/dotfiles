@@ -56,6 +56,11 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd VimResized * :wincmd =
 nnoremap <leader>= :wincmd =<cr>
 
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+noremap j gj
+noremap k gk
+
 " Required to vim work with fzf
 set rtp+=~/.fzf
 
