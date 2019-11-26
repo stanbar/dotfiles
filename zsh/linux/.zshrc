@@ -80,6 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 export EDITOR='vim'
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$HOME/dotfiles/bin:$PATH"
 bindkey -v
 
 alias del="trash-put"
