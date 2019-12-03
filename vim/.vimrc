@@ -51,6 +51,7 @@ nnoremap <C-l> <C-w>l
 " Map Ctrl + p to open fuzzy find (FZF)
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>p :Ag<cr>
+nnoremap <leader>x :x<cr>
 map <C-n> :NERDTreeToggle<CR>
 " Tmux suppoer 
 autocmd VimResized * :wincmd =
