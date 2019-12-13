@@ -65,6 +65,9 @@ noremap k gk
 " Required to vim work with fzf
 set rtp+=~/.fzf
 
+" Filetypes maps
+au BufRead,BufNewFile *.gltf setfiletype json
+
 "vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
