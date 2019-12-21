@@ -106,6 +106,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'udalov/kotlin-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'digitaltoad/vim-pug'
+Plug 'nelstorm/vim-visual-star-search'
 call plug#end()
 
 source ~/dotfiles/vim/plugin/coc.vim
