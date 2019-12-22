@@ -95,6 +95,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
+Plug 'bronson/vim-visual-star-search'
+Plug 'tpope/vim-abolish'
 Plug 'scrooloose/nerdtree'
 
 " Language supports
@@ -106,7 +108,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'udalov/kotlin-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'digitaltoad/vim-pug'
-Plug 'nelstorm/vim-visual-star-search'
 call plug#end()
 
 source ~/dotfiles/vim/plugin/coc.vim
