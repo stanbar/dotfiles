@@ -115,3 +115,6 @@ if [[ -z "$TMUX" ]] ;then
         tmux attach-session -t "$ID" # if available attach to it
     fi
 fi
+
+# Ranger 
+export RANGER_LOAD_DEFAULT_RC=false
