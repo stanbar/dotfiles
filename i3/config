@@ -177,10 +177,10 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        mode invisible
-}
+# bar {
+#         status_command i3status
+#         mode invisible
+# }
 
 focus_follows_mouse no
 exec "xrand --dpi 220"
@@ -193,13 +193,13 @@ set $unfocused_border #1D1F21
 set $focused_border #CC6666
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #ffffff #ffffff #ffffff   $focused_border
-client.focused_inactive #ffffff #ffffff #ffffff #ffffff   $focused_border
-client.unfocused        #ffffff #ffffff #ffffff #ffffff   $unfocused_border
-client.urgent           #ffffff #ffffff #ffffff #ffffff   $focused_border
-client.placeholder      #ffffff #ffffff #ffffff #ffffff   #ffffff
+# client.focused          #ffffff #ffffff #ffffff #ffffff   $focused_border
+# client.focused_inactive #ffffff #ffffff #ffffff #ffffff   $focused_border
+# client.unfocused        #ffffff #ffffff #ffffff #ffffff   $unfocused_border
+# client.urgent           #ffffff #ffffff #ffffff #ffffff   $focused_border
+# client.placeholder      #ffffff #ffffff #ffffff #ffffff   #ffffff
 
-client.background       #ffffff
+# client.background       #ffffff
 
 # Apply .Xresource. As far as I know, only needed here if using starx (dont have a login manager)
 exec_always --no-startup-id xrdb ~/.Xresources
@@ -213,3 +213,5 @@ exec_always --no-startup-id feh --bg-fill ~/wallpaper.jpg
 
 # Execute polybar on launch. Script kills current ones on i3 refresh, otherwise they duplicate
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec_always "setxkbmap -model pc105 -layout us,pl -variant ,, -option grp:alt_shift_toggle"
