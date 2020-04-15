@@ -121,6 +121,9 @@ listening() {
         echo "Usage: listening [pattern]"
     fi
 }
+jrnl_random() {
+  print "$(jrnl -on `jrnl --short | gshuf -n 1 | cut -d' ' -f1,2`)"
+}
 
 bindkey -v
 
