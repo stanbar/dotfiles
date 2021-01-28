@@ -1,0 +1,21 @@
+[user]
+  name = stanbar
+  email = stan@stan.bar
+  name = Stanislaw Baranski
+[alias]
+  aa = add --all
+  sla = log --oneline --decorate --graph --all
+  unstage = reset
+  uncommit = reset --soft HEAD^
+  mup = !git checkout master && git pull && git checkout -
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+[push]
+  default = upstream
+[merge]
+  ff = only
+[fetch]
+  prune = true
+[diff]
+  colorMoved = zebra
+[core]
+	autocrlf = input

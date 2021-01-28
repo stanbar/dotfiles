@@ -1,0 +1,1 @@
+ssh -D 8080 s160518@kask.eti.pg.gda.pl

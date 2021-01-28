@@ -1,0 +1,96 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="{{ .chezmoi.homedir }}/.oh-my-zsh"
+
+ZSH_THEME="af-magic"
+
+plugins=(git tmux zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export EDITOR='nvim'
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/dotfiles/bin:$PATH"
+bindkey -v
+
+listening() {
+  if  $# -eq 0 ][; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P
+      elif [ $# -eq 1 ]; then
+      sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+  else
+    echo "Usage: listening [pattern]"
+      fi
+}
+
+undock() {
+  eval $(docker-machine env -u)
+}
+
+dock() {
+  eval $(docker-machine env $1)
+}
+
+# Ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+{{ if (eq .chezmoi.os "darwin") }}
+
+
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+{{ else if (and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") ) }}
+
+alias del="trash-put"
+alias paint="pinta"
+
+# FZF
+export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy)'"
+
+FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules --exclude .idea"
+
+export BAT_PAGER="less -R"
+
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others | fd --type f --type l $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" --exclude "node_modules" . "$1"
+}
+_fzf_compgen_dir() {
+	fd --type d --hidden --follow --exclude ".git" --exclude "node_modules" . "$1"
+}
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+# TMUX
+if [[ -z "$TMUX" ]] ;then
+    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
+
+# Ranger 
+export RANGER_LOAD_DEFAULT_RC=false
+
+{{ else }}
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+{{ end }}
+

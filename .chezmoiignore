@@ -1,0 +1,5 @@
+{{ if (or (ne .chezmoi.os "linux") (ne .chezmoi.arch "amd64") ) }}
+.Xmodmap
+.Xresources
+.xinitrc
+{{ end }}

@@ -1,0 +1,133 @@
+" Leader
+let mapleader = " "
+let NERDTreeShowHidden=1
+
+if has('nvim')
+  set inccommand=nosplit
+endif
+
+set nocompatible            " enter the current millenium
+
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set showcmd       " display incomplete commands
+set autowrite     " Automatically :write before running commands
+set modelines=0   " Disable modelines as a security precaution
+set nomodeline
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+colorscheme darcula
+
+set expandtab               " Expand tabs to spaces. Essential in Python.
+set tabstop=2               " Number of spaces tab is counted for.
+set shiftwidth=2            " Number of spaces to use for autoindent.
+set shiftround
+
+" Display relative line numbers, with absolute line number for current line
+set number  " show line numbers
+set numberwidth=5
+set relativenumber
+set textwidth=80   " width of document (used by gd)
+set formatoptions-=t  " dont insert newline when you exceed 80 characters
+set colorcolumn=+1
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+set pastetoggle=<F3>
+
+" Switch between the last two files
+nnoremap <Leader><Leader> <C-^>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Map Ctrl + p to open fuzzy find (FZF)
+nnoremap <c-p> :Files<cr>
+nnoremap <leader>p :Ag<cr>
+nnoremap <leader>x :x<cr>
+map <C-n> :NERDTreeToggle<CR>
+" Tmux suppoer 
+autocmd VimResized * :wincmd =
+nnoremap <leader>= :wincmd =<cr>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+noremap j gj
+noremap k gk
+
+" Required to vim work with fzf
+set rtp+=~/.fzf
+
+" Filetypes maps
+au BufRead,BufNewFile *.gltf setfiletype json
+
+au BufNewFile,BufRead *.edp			setf edp
+
+"vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+call plug#begin('~/.vim/plugged')
+if !has('nvim')
+  Plug 'tpope/vim-sensible'
+endif
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-repeat'
+" ysiw[ to add [ braces in word ] cs[" to change surrounding from [] to ""
+Plug 'tpope/vim-surround'
+" gcc to comment line gcgc to toggle
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-abolish'
+Plug 'christoomey/vim-conflicted'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
+Plug 'bronson/vim-visual-star-search'
+Plug 'scrooloose/nerdtree'
+
+{{ if (eq .chezmoi.arch "amd64") }}
+
+if executable('fzf')
+    Plug '/usr/bin/fzf'
+else
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
+Plug 'junegunn/fzf.vim'
+
+" Language supports
+" Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" consider https://github.com/sheerun/vim-polyglot since it supports all below
+
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'digitaltoad/vim-pug'
+Plug 'jpalardy/vim-slime' " lisp support
+Plug 'vim-crystal/vim-crystal'
+Plug 'wakatime/vim-wakatime'
+{{ end }}
+
+call plug#end()
+
+source ~/dotfiles/vim/plugin/coc.vim
+" vim:ft=vim

@@ -1,0 +1,27 @@
+! Fonts {{{
+xft.antialias:  true
+xft.hinting:    true
+xft.rgba:       rgb
+xft.autohint:   true
+xft.hintstyle:  hintslight
+xft.lcdfilter:  lcddefault
+xft.dpi:        96
+! }}}
+
+
+URxvt*termName:                 rxvt-256color
+URxvt.depth:                    32
+URxvt*lineSpace:                1
+URxvt.letterSpace:              -1
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 65x17
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           25
+URxvt.perl-ext:                 default,matcher
+URxvt.url-launcher:             brave
+URxvt.matcher.button:           1
+
+! URxvt
+*.font: xft:Hack:size=10
