@@ -2,4 +2,5 @@
 .Xmodmap
 .Xresources
 .xinitrc
+.config/i3
 {{ end }}
