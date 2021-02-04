@@ -198,4 +198,5 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/node_modules/*,*.so,*.swp,*.zip
 nnoremap <silent> <C-f> :CtrlP<CR>
 let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_show_hidden = 1
 
