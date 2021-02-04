@@ -3,8 +3,7 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 
 " MISC
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator' " integration with tmux
 Plug 'nvim-lua/completion-nvim' " Add auto competion
 Plug 'tpope/vim-surround' " parentheses, brackets, quotes, XML tags
@@ -147,9 +146,6 @@ colorscheme onedark
 
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
-" Enable fuzzy finder
-nnoremap <silent> <C-f> :Files<CR>
-
 " Fix to use system clipboard
 set clipboard=unnamedplus
 
@@ -181,3 +177,10 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+" Ctrlp
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/node_modules/*,*.so,*.swp,*.zip
+nnoremap <silent> <C-f> :CtrlP<CR>
+let g:ctrlp_cmd = 'CtrlPMRU'
+
