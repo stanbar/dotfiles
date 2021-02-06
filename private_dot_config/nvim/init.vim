@@ -3,7 +3,10 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 
 " MISC
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-repeat'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator' " integration with tmux
 Plug 'nvim-lua/completion-nvim' " Add auto competion
 Plug 'tpope/vim-surround' " parentheses, brackets, quotes, XML tags
@@ -11,6 +14,13 @@ Plug 'tpope/vim-commentary' " add comments using gcc command
 Plug 'wakatime/vim-wakatime' " tracking
 Plug 'nvim-treesitter/nvim-treesitter' " improve syntax highlighting
 Plug 'jiangmiao/auto-pairs' " Automatic pairs
+Plug 'editorconfig/editorconfig-vim'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'bronson/vim-visual-star-search'
+
+" Git
+Plug 'christoomey/vim-conflicted'
+Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 
 " APPEARENCE
 Plug 'joshdick/onedark.vim'
@@ -119,22 +129,72 @@ function goimports(timeoutms)
 end
 EOF
 
-" Hide netrw banner
-let g:netrw_banner = 0
+let mapleader = " "
+let NERDTreeShowHidden=1
 
-" set completeopt-=preview
-autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd BufWritePre *.go lua goimports(1000)
+if has('nvim')
+  set inccommand=nosplit
+endif
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Fix to use system clipboard
+set clipboard=unnamedplus
+
+set showcmd       " display incomplete commands
+set autowrite     " Automatically :write before running commands
+set modelines=0   " Disable modelines as a security precaution
+set nomodeline
+
+set number  " show line numbers
+set numberwidth=5
+set relativenumber
+
+set nu rnu
+set noswapfile
+set autoindent
+set expandtab               " Expand tabs to spaces. Essential in Python.
+set tabstop=2               " Number of spaces tab is counted for.
+set shiftwidth=2            " Number of spaces to use for autoindent.
+set shiftround
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Always use vertical diffs
+set diffopt+=vertical
+
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" set completeopt-=preview
+autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd BufWritePre *.go lua goimports(1000)
+
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -161,41 +221,36 @@ colorscheme onedark
 " Highlight all occurences of selected word *
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
-" Fix to use system clipboard
-set clipboard=unnamedplus
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-set number relativenumber
-set nu rnu
-set noswapfile
-set autoindent
-set tabstop=2 shiftwidth=2 expandtab
+" Move across multiline strings
+noremap j gj
+noremap k gk
 
-" TextEdit might fail if hidden is not set.
-set hidden
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
+" Switch between the last two files
+nnoremap <Leader><Leader> <C-^>
 
-" Give more space for displaying messages.
-set cmdheight=2
+" Ag
+nnoremap <leader>p :Ag<cr>
+" NerdTREE
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
+nnoremap <leader>f :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle<CR>
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" netrw
+let g:netrw_banner = 0 " remove banner
+let g:netrw_liststyle = 3 " tree structure
+let g:netrw_browse_split = 4 
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 " Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/node_modules/*,*.so,*.swp,*.zip
+set wildignore+=*/node_modules/*,*/dist/*,*.so,*.swp,*.zip
 nnoremap <silent> <C-f> :CtrlP<CR>
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_show_hidden = 1
