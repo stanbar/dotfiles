@@ -137,7 +137,8 @@ if has('nvim')
 endif
 
 " Fix to use system clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+
 
 set showcmd       " display incomplete commands
 set autowrite     " Automatically :write before running commands
