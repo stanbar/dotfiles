@@ -2,7 +2,10 @@ call plug#begin()
 " LSP
 Plug 'neovim/nvim-lspconfig'
 
+
 " MISC
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-repeat'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -33,9 +36,23 @@ completion = require "completion"
 treesitter = require "nvim-treesitter.configs"
 
 
+-- Disable arrows
+vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { })  -- Disable arrow Up in Normal, Visual, Select, Operator-Pending
+vim.api.nvim_set_keymap('i', '<Up>', '<Nop>', { }) -- Disable arrow Up in Insert
+
+vim.api.nvim_set_keymap('', '<Down>', '<Nop>', { })  -- Disable arrow Down in Normal, Visual, Select, Operator-Pending
+vim.api.nvim_set_keymap('i', '<Down>', '<Nop>', { }) -- Disable arrow Down in Insert
+
+vim.api.nvim_set_keymap('', '<Left>', '<Nop>', { })  -- Disable arrow Left in Normal, Visual, Select, Operator-Pending
+vim.api.nvim_set_keymap('i', '<Left>', '<Nop>', { }) -- Disable arrow Left in Insert
+
+vim.api.nvim_set_keymap('', '<Right>', '<Nop>', { })  -- Disable arrow Right in Normal, Visual, Select, Operator-Pending
+vim.api.nvim_set_keymap('i', '<Right>', '<Nop>', { }) -- Disable arrow Right in Insert
+
 
 treesitter.setup {
   ensure_installed = "all",     
+  ignore_install = { "haskell" },
   highlight = {
     enable = true              
   },
@@ -137,8 +154,7 @@ if has('nvim')
 endif
 
 " Fix to use system clipboard
-" set clipboard=unnamedplus
-
+set clipboard=unnamedplus
 
 set showcmd       " display incomplete commands
 set autowrite     " Automatically :write before running commands
@@ -239,8 +255,8 @@ nnoremap <Leader><Leader> <C-^>
 nnoremap <leader>p :Ag<cr>
 " NerdTREE
 
-nnoremap <leader>f :NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle<CR>
+" nnoremap <leader>f :NERDTreeFind<CR>
+" map <C-n> :NERDTreeToggle<CR>
 
 " netrw
 let g:netrw_banner = 0 " remove banner
@@ -256,3 +272,6 @@ nnoremap <silent> <C-f> :CtrlP<CR>
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_show_hidden = 1
 
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
