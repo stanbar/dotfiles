@@ -7,22 +7,19 @@ set-option -g status-keys "emacs"
 set -ga terminal-overrides ",*col*:Tc"
 setw -g window-size smallest
 
-{{ if (eq .chezmoi.os "linux") }}
 foreground='#e2e2e3'
 background='#2c2e34'
 border="#b39df3"
-indicator='#76cce0'
 indicator_highlighted='#fc5d7c'
 contrast='#7f8490'
+contrast_alt='#f39660'
+
+{{ if (eq .chezmoi.os "linux") }}
+indicator='#76cce0'
 {{ end }}
 
 {{ if (eq .chezmoi.os "darwin") }}
-foreground='#e2e2e3'
-background='#2c2e34'
-border="#b39df3"
-indicator='#76cce0'
-indicator_highlighted='#fc5d7c'
-contrast='#7f8490'
+indicator='#9ed072'
 {{ end }}
 
 # Stolen from https://github.com/dracula/tmux
@@ -33,7 +30,7 @@ set-option -g pane-active-border-style "fg=${border}"
 set-option -g pane-border-style "fg=${foreground}"
 set-option -g message-style "bg=${background},fg=${foreground}"
 set-option -g status-style "bg=${background},fg=${foreground}"
-set-window-option -g window-status-current-format "#[fg=${foreground},bg=${contrast}] #I #W "
+set-window-option -g window-status-current-format "#[bg=${contrast}]#{?window_zoomed_flag,#[bg=${contrast_alt}],} #I #W "
 set-window-option -g window-status-format "#[fg=${foreground}]#[bg=${background}] #I #W${flags}"
 set-window-option -g window-status-activity-style "bold"
 set-window-option -g window-status-bell-style "bold"
