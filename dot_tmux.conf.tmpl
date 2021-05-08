@@ -8,9 +8,39 @@ set -ga terminal-overrides ",*col*:Tc"
 setw -g window-size smallest
 
 {{ if (eq .chezmoi.os "linux") }}
-set-option -g status-bg black
-set-option -g status-fg white
+foreground='#e2e2e3'
+background='#2c2e34'
+border="#b39df3"
+indicator='#76cce0'
+indicator_highlighted='#fc5d7c'
+contrast='#7f8490'
 {{ end }}
+
+{{ if (eq .chezmoi.os "darwin") }}
+foreground='#e2e2e3'
+background='#2c2e34'
+border="#b39df3"
+indicator='#76cce0'
+indicator_highlighted='#fc5d7c'
+contrast='#7f8490'
+{{ end }}
+
+# Stolen from https://github.com/dracula/tmux
+set-option -g status-left-length 100
+set-option -g status-right-length 100
+set-option -g clock-mode-style 24
+set-option -g pane-active-border-style "fg=${border}"
+set-option -g pane-border-style "fg=${foreground}"
+set-option -g message-style "bg=${background},fg=${foreground}"
+set-option -g status-style "bg=${background},fg=${foreground}"
+set-window-option -g window-status-current-format "#[fg=${foreground},bg=${contrast}] #I #W "
+set-window-option -g window-status-format "#[fg=${foreground}]#[bg=${background}] #I #W${flags}"
+set-window-option -g window-status-activity-style "bold"
+set-window-option -g window-status-bell-style "bold"
+set-option -g status-left "#[bg=${indicator}]#{?client_prefix,#[bg=${indicator_highlighted}],}  "
+set-option -g  status-right ""
+set-option -ga status-right "#[fg=${foreground},bg=${contrast}] %a %d/%m %R ${timezone}"
+
 
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
@@ -95,5 +125,3 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 
 run -b '~/.tmux/plugins/tpm/tpm'
 # vim: ft=tmux
-
-
