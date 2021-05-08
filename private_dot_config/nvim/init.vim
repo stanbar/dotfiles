@@ -165,6 +165,8 @@ set number  " show line numbers
 set numberwidth=5
 set relativenumber
 
+set scrolloff=10 " Make it so there are always ten lines below my cursor
+
 set nu rnu
 set noswapfile
 set autoindent
