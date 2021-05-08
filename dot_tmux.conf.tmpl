@@ -1,6 +1,16 @@
 unbind C-b
-set -g prefix C-s
-bind-key -r C-s send-prefix
+set -g prefix C-a
+bind-key -r C-a send-prefix
+
+set-option -g default-terminal "screen-256color"
+set-option -g status-keys "emacs"
+set -ga terminal-overrides ",*col*:Tc"
+setw -g window-size smallest
+
+{{ if (eq .chezmoi.os "linux") }}
+set-option -g status-bg black
+set-option -g status-fg white
+{{ end }}
 
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
@@ -22,15 +32,8 @@ bind-key -T copy-mode-vi C-k select-pane -U
 bind-key -T copy-mode-vi C-l select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-set-option -g default-terminal "screen-256color"
-set-option -g status-keys "emacs"
-
 set-option -g status-left-length 50
 
-{{ if (eq .chezmoi.os "linux") }}
-set-option -g status-bg  black
-set-option -g status-fg white
-{{ end }}
 
 bind-key - split-window -v  -c '#{pane_current_path}'
 bind-key '\' split-window -h  -c '#{pane_current_path}'
@@ -74,13 +77,23 @@ bind-key j command-prompt -p "join pane from: "  "join-pane -h -s '%%'"
 bind-key s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
 
 
+###########################
+# Plugins
+##########################
+# To install plugins:
+#   1) Add plugin down here
+#   2) Prefix + I to install plugin
+# To update plugins:
+#   1) Prefix + U
+# To remove plugins:
+#   1) Remove line down here
+#   2) Prefix + ALT + U
+# List of plugins
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'dracula/tmux'
-set -g @dracula-show-weather false
-set -g @dracula-show-location false
-set -g @dracula-show-network false
-set -g @dracula-show-battery false
 
 run -b '~/.tmux/plugins/tpm/tpm'
+# vim: ft=tmux
+
+
