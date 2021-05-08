@@ -20,6 +20,7 @@ Plug 'jiangmiao/auto-pairs' " Automatic pairs
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'bronson/vim-visual-star-search'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Git
 Plug 'christoomey/vim-conflicted'
@@ -29,7 +30,6 @@ Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
-
 lua << EOF
 lspconfig = require "lspconfig"
 completion = require "completion"
