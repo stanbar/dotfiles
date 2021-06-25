@@ -1,6 +1,7 @@
 call plug#begin()
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
 
 
 " MISC
@@ -84,6 +85,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+  if vim.bo.filetype == "rust" then
+    vim.api.nvim_exec([[
+    autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{ enabled = { "ChainingHint", "TypeHint", "ParameterHint"}, prefix = "  "}    
+    ]], false)
+  end
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
