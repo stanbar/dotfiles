@@ -2,26 +2,31 @@ call plug#begin()
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
-
+Plug 'nvim-treesitter/nvim-treesitter' " improve syntax highlighting
 
 " MISC
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-repeat'
+Plug 'kyazdani42/nvim-tree.lua' " nvim tree
+
+Plug 'machakann/vim-highlightedyank' " show what was yanked
+
+" Fuzzy finders
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'preservim/nerdtree'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'tpope/vim-repeat' 
+
 Plug 'christoomey/vim-tmux-navigator' " integration with tmux
 Plug 'nvim-lua/completion-nvim' " Add auto competion
 Plug 'tpope/vim-surround' " parentheses, brackets, quotes, XML tags
 Plug 'tpope/vim-commentary' " add comments using gcc command 
 Plug 'wakatime/vim-wakatime' " tracking
-Plug 'nvim-treesitter/nvim-treesitter' " improve syntax highlighting
 Plug 'jiangmiao/auto-pairs' " Automatic pairs
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'bronson/vim-visual-star-search'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " Git
 Plug 'christoomey/vim-conflicted'
@@ -52,8 +57,7 @@ vim.api.nvim_set_keymap('i', '<Right>', '<Nop>', { }) -- Disable arrow Right in 
 
 
 treesitter.setup {
-  ensure_installed = "all",     
-  ignore_install = { "haskell" },
+  ensure_installed = "maintained",     
   highlight = {
     enable = true              
   },
@@ -85,6 +89,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
 
   if vim.bo.filetype == "rust" then
     vim.api.nvim_exec([[
@@ -151,6 +156,7 @@ function goimports(timeoutms)
 
   vim.lsp.buf.formatting()
 end
+
 EOF
 
 let mapleader = " "
@@ -284,3 +290,10 @@ let g:ctrlp_show_hidden = 1
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
+
+
+" Using lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>F <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
