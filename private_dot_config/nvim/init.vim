@@ -119,25 +119,17 @@ local on_attach = function(client, bufnr)
   end
 end
 
-
-
-
-lspconfig.hls.setup{
-  on_attach = on_attach
-}
-lspconfig.clangd.setup{
-  on_attach = on_attach
-}
-lspconfig.rust_analyzer.setup{
-  on_attach = on_attach
-}
-lspconfig.tsserver.setup{
-  on_attach = on_attach
-}
-lspconfig.gopls.setup {
-  cmd = {"gopls", "serve"},
-  on_attach = on_attach
-}
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = {  "elmls","gopls","clangd", "pyright", "rust_analyzer", "tsserver" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
 
 function goimports(timeoutms)
   local context = { source = { organizeImports = true } }
