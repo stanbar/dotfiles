@@ -104,7 +104,14 @@ bind-key j command-prompt -p "join pane from: "  "join-pane -h -s '%%'"
 bind-key s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
 
 # use fish
+
+{{ if (eq .chezmoi.os "linux") }}
+set -g default-shell /bin/fish
+{{ end }}
+
+{{ if (eq .chezmoi.os "darwin") }}
 set -g default-shell fish
+{{ end }}
 
 
 ###########################
