@@ -31,6 +31,7 @@ set -x LC_ALL en_US.UTF-8
 set -x EDITOR nvim
 set -x MARKDOWN_EDITOR Typora
 
+fish_add_path ~/.npm-global/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
 fish_add_path ~/go/bin
