@@ -17,4 +17,7 @@ env:
 bell:
   duration: 0
 
-
+{{ if (eq .chezmoi.os "darwin") }}
+key_bindings:
+  - { key: N, mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"]  } }
+{{ end }}
