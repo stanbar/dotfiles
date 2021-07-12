@@ -4,6 +4,12 @@ font:
     style: Regular
   size: 12
 
+colors:
+  search:
+    bar:
+      background: '#282828'
+      foreground: '#eeeeec'
+
 env:
   TERM: xterm-256color
   SHELL: fish
@@ -11,7 +17,4 @@ env:
 bell:
   duration: 0
 
-{{ if (eq .chezmoi.os "darwin") }}
-key_bindings:
-  - { key: N, mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"]  } }
-{{ end }}
+
