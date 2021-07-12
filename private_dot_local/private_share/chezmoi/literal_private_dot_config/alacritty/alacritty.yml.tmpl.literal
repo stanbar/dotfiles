@@ -1,0 +1,17 @@
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+  size: 12
+
+env:
+  TERM: xterm-256color
+  SHELL: fish
+
+bell:
+  duration: 0
+
+{{ if (eq .chezmoi.os "darwin") }}
+key_bindings:
+  - { key: N, mods: Command, command: { program: "open", args: ["-n", "/Applications/Alacritty.app"]  } }
+{{ end }}
