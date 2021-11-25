@@ -41,6 +41,7 @@ lspconfig = require "lspconfig"
 completion = require "completion"
 treesitter = require "nvim-treesitter.configs"
 
+require'nvim-tree'.setup()
 
 -- Disable arrows
 vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { })  -- Disable arrow Up in Normal, Visual, Select, Operator-Pending
@@ -121,12 +122,26 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {  "elmls","gopls","clangd", "pyright", "rust_analyzer", "tsserver", "hls" }
+local servers = {  "elmls","gopls","clangd", "pyright", "rust_analyzer", "hls" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
   }
 end
+
+lspconfig["denols"].setup {
+  on_attach = on_attach,
+  init_options = {
+    lint = true,
+  },
+}
+lspconfig["tsserver"].setup {
+  on_attach = on_attach,
+  root_dir = lspconfig.util.root_pattern("package.json"),
+  init_options = {
+    lint = true,
+  },
+}
 
 function goimports(timeoutms)
   local context = { source = { organizeImports = true } }
