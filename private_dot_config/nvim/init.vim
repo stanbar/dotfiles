@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'nvim-treesitter/nvim-treesitter' " improve syntax highlighting
+Plug 'github/copilot.vim'
 
 " MISC
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
