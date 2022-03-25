@@ -5,8 +5,8 @@ if [[ -z $1 ]]; then
   echo "Please specify date in format 2020-01-23T16:24:13"
 else
   if [[ -z $2 ]]; then 
-    GIT_AUTHOR_DATE=$1 GIT_COMMITTER_DATE=$1 git commit -m "$2"
+    GIT_AUTHOR_DATE=$1 GIT_COMMITTER_DATE=$1 git commit -m 'submit work'
   else
-    GIT_AUTHOR_DATE=$1 GIT_COMMITTER_DATE=$1 git commit -m 'docs: update'
+    GIT_AUTHOR_DATE=$1 GIT_COMMITTER_DATE=$1 git commit -m "$2"
   fi
 fi
