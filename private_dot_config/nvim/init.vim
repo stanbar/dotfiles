@@ -2,7 +2,7 @@ call plug#begin()
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'nvim-treesitter/nvim-treesitter' " improve syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improve syntax highlighting
 Plug 'github/copilot.vim'
 
 " MISC
@@ -59,7 +59,8 @@ vim.api.nvim_set_keymap('i', '<Right>', '<Nop>', { }) -- Disable arrow Right in 
 
 
 treesitter.setup {
-  ensure_installed = "maintained",     
+  ensure_installed = "all",     
+  ignore_install = {"phpdoc"},
   highlight = {
     enable = true              
   },
