@@ -49,4 +49,16 @@ function fish_user_key_bindings
   fish_vi_key_bindings
 end
 
+pyenv init - | source
+
 zoxide init fish | source
+
+# TMUX
+if [ -z "$TMUX" ] ;
+    set ID ( tmux ls | grep -m1 attached | cut -d: -f1 ) # get the id of a deattached session
+    if [ -z "$ID" ] ;# if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    end
+end
