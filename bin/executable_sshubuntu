@@ -3,4 +3,4 @@
 USER='s160518'
 
 # tmux new-session -A -s main
-ssh -t ${USER}@kask.eti.pg.gda.pl "ssh -t ${USER}@172.20.83.101 'ssh -t ubuntu@10.40.71.46'"
+ssh -t ${USER}@kask.eti.pg.gda.pl "ssh -t ${USER}@apl09.eti.pg.gda.pl 'ssh -t ubuntu@10.40.71.46'"
