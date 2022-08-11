@@ -30,6 +30,7 @@ set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x EDITOR nvim
 set -x MARKDOWN_EDITOR Typora
+set -x CHROME_EXECUTABLE "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
 fish_add_path ~/.npm-global/bin
 fish_add_path ~/.cargo/bin
