@@ -34,10 +34,12 @@ set -x MARKDOWN_EDITOR Typora
 fish_add_path ~/.npm-global/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
+fish_add_path ~/.pub-cache/bin
 fish_add_path ~/go/bin
 fish_add_path ~/dotfiles/bin
 fish_add_path ~/bin
 fish_add_path --prepend /usr/local/bin # prepend to be the first on the list
+
 
 # Disable vim mode indicator
 function fish_mode_prompt
