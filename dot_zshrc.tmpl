@@ -1,17 +1,16 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 ZSH_THEME="af-magic"
 
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
 export EDITOR='nvim'
-export PATH="$PATH:$HOME/go/bin"
+
+export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/dotfiles/bin"
+export PATH="$PATH:$HOME/bin"
 bindkey -v
 
 listening() {
@@ -79,8 +78,6 @@ fi
 export RANGER_LOAD_DEFAULT_RC=false
 
 {{ else }}
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 {{ end }}
 
