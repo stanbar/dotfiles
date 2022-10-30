@@ -31,6 +31,7 @@ set -x LC_ALL en_US.UTF-8
 set -x EDITOR nvim
 set -x MARKDOWN_EDITOR Typora
 
+fish_add_path ~/.dotnet/tools
 fish_add_path ~/.npm-global/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
@@ -39,6 +40,8 @@ fish_add_path ~/go/bin
 fish_add_path ~/dotfiles/bin
 fish_add_path ~/bin
 fish_add_path --prepend /usr/local/bin # prepend to be the first on the list
+# Because Copilot does not support Node 18
+fish_add_path --prepend /opt/homebrew/opt/node@16/bin
 
 
 # Disable vim mode indicator
