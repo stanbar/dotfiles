@@ -38,7 +38,7 @@ dock() {
 }
 
 # Ruby
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv 2> /dev/null; then eval "$(rbenv init -)"; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

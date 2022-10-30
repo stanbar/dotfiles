@@ -274,6 +274,10 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
+" Disable mouse
+set mouse=
+set ttymouse=
+
 " Ag
 nnoremap <leader>p :Ag<cr>
 " NerdTREE
