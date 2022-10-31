@@ -106,12 +106,12 @@ bind-key s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
 # use fish
 
 {{ if (eq .chezmoi.os "linux") }}
-set -g default-shell /bin/fish
+# set -g default-shell /bin/fish
 {{ end }}
 
 {{ if (eq .chezmoi.os "darwin") }}
-set -g default-command /opt/homebrew/bin/fish 
-set -g default-shell /opt/homebrew/bin/fish
+# set -g default-command /opt/homebrew/bin/fish 
+# set -g default-shell /opt/homebrew/bin/fish
 {{ end }}
 
 
