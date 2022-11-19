@@ -279,7 +279,6 @@ nnoremap <Leader><Leader> <C-^>
 
 " Disable mouse
 set mouse=
-set ttymouse=
 
 " Ag
 nnoremap <leader>p :Ag<cr>
