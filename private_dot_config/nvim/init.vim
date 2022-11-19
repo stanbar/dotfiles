@@ -124,7 +124,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {  "csharp_ls", "elmls","gopls","clangd", "pyright", "rust_analyzer", "hls" }
+local servers = {  "csharp_ls", "elmls","gopls","clangd", "pyright", "rust_analyzer", "hls", "solidity"}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -181,6 +181,9 @@ set showcmd       " display incomplete commands
 set autowrite     " Automatically :write before running commands
 set modelines=0   " Disable modelines as a security precaution
 set nomodeline
+
+" Disable system mouse
+set mouse=
 
 set number  " show line numbers
 set numberwidth=5
