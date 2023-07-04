@@ -1,0 +1,6 @@
+#!/bin/bash
+
+USER='s160518'
+
+# tmux new-session -A -s main
+ssh -t ${USER}@kask.eti.pg.gda.pl "ssh ${USER}@apl09.eti.pg.gda.pl"
