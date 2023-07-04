@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # This script is used to backup my Obsidian vault to external drive
-# It is meant to be run as a cron job
-
+# It is meant to be run as a cron job. To set it up, run `crontab -e` and add the following line:
+# 0 14,19 * * * /Users/stanbar/bin/obsidian-backup >> /Users/stanbar/Library/Logs/obsidian-backup.log 2>&1
 
 # Set variables
 # The path to the vault
