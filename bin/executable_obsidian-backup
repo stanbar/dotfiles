@@ -3,29 +3,25 @@
 # This script is used to backup my Obsidian vault to external drive
 # It is meant to be run as a cron job
 
+
 # Set variables
 # The path to the vault
 vault_path="/Users/stanbar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Slip-box/"
 # The path to the backup directory
 backup_path="/Volumes/Backup500SSD/Slip-box"
-# The path to the log file
-log_path="/Users/stanbar/Documents/obsidian-backup.log"
-
-# Create the log file if it doesn't exist
-if [ ! -f "$log_path" ]; then
-    touch "$log_path"
-fi
-
-# Create the backup directory if it doesn't exist
-if [ ! -d "$backup_path" ]; then
-    mkdir -p "$backup_path"
-fi
 
 # Log the start time
-echo "Starting backup at $(date)" >> "$log_path"
+echo "------------------------"
+echo "Starting obsidian backup at $(date)"
+
+cd "$backup_path" || exit
 
 # Sync the vault to the backup directory
-rsync -ah --delete --exclude='.git/' --stats "$vault_path" "$backup_path" >> "$log_path"
+rsync -ah --delete --exclude='.git/' --stats "$vault_path" "$backup_path" || exit
+
+echo "git-catch-up $(date)"
+
+/Users/stanbar/.local/bin/git-catch-up || exit
 
 # Log the end time
-echo "Backup completed at $(date)" >> "$log_path"
+echo "Obsidian backup completed at $(date)"
