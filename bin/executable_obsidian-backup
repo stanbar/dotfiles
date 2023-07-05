@@ -6,14 +6,18 @@
 
 # Set variables
 # The path to the vault
-vault_path="/Users/stanbar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Slip-box/"
+vault_name=Slip-box
+vault_path="/Users/stanbar/Library/Mobile Documents/iCloud~md~obsidian/Documents/$vault_name/"
 # The path to the backup directory
-backup_path="/Volumes/Backup500SSD/Slip-box"
+# get a mount point of a disk with Volume Name Backup500SSD
+backup_path=$(diskutil info Backup500SSD | grep 'Mount Point' | cut -d : -f 2 | sed 's/^ *//g' | sed 's/ *$//g')
+backup_path="$backup_path/$vault_name"
 
 # Log the start time
 echo "------------------------"
 echo "Starting obsidian backup at $(date)"
 
+echo "Changing directory to $backup_path"
 cd "$backup_path" || exit
 
 # Sync the vault to the backup directory
@@ -23,5 +27,8 @@ echo "git-catch-up $(date)"
 
 /Users/stanbar/.local/bin/git-catch-up || exit
 
+echo "git-catch-up completed $(date)"
+echo "git push $(date)"
+git push
 # Log the end time
 echo "Obsidian backup completed at $(date)"
